@@ -106,7 +106,7 @@ const t = computed(() => translations[currentLanguage.value])
 
         <!-- Image Side -->
         <div class="hidden md:block bg-slate-800 relative">
-           <div class="absolute inset-0 bg-[url('images/recruit.png')] bg-cover bg-center xmix-blend-overlay opacity-90"></div>
+           <div class="absolute inset-0 bg-[url('images/recruit.webp')] bg-cover bg-center xmix-blend-overlay opacity-90"></div>
            <div class="absolute inset-0 bg-linear-to-t from-black/90 via-50% via-black/10 to-black/5"></div>
            <div class="absolute bottom-10 w-full px-12">
               <p class="text-white text-center font-extralight text-2xl">{{ t.quote }}</p>
