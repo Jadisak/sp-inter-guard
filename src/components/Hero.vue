@@ -33,9 +33,9 @@
     
     <!-- Visual / Illustration Placeholder -->
     <div class="relative h-[400px] rounded-3xl bg-linear-to-tr from-slate-700 via-orange-300/60 via-15% to-slate-500 border border-slate-700 flex items-center justify-center overflow-hidden group shadow-2xl">
-        <div class="absolute inset-0 bg-[url('/images/hero-bg.png')] bg-cover bg-center opacity-100 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"></div>
+        <div class="absolute inset-0 bg-[url('/images/hero-bg.jpeg')] bg-cover bg-center opacity-100 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"></div>
         <div class="relative z-10 text-center p-0 -bottom-16">
-            <h3 class="text-2xl font-bold text-white mb-2">{{ t.professionalGuard }}</h3>
+            <h3 class="text-xl font-semibold text-white mb-2 w-fit mx-auto px-3 py-1 border bg-white/20">{{ t.professionalGuard }}</h3>
             <p class="text-slate-200">{{ t.trusted }}</p>
         </div>
     </div>
@@ -66,7 +66,7 @@ const translations = {
     description: 'มอบโซลูชั่นความปลอดภัยชั้นนำ ผสานกำลังคนมืออาชีพกับเทคโนโลยีการตรวจตราขั้นสูงเพื่อความอุ่นใจสูงสุดของคุณ',
     getQuote: 'ขอใบเสนอราคา',
     exploreServices: 'ดูบริการของเรา',
-    professionalGuard: 'เจ้าหน้าที่รักษาความปลอดภัยมืออาชีพ',
+    professionalGuard: 'การรักษาความปลอดภัย โดยมืออาชีพ',
     trusted: 'ได้รับความไว้วางใจจากบริษัทชั้นนำในประเทศไทย'
   }
 }

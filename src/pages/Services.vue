@@ -42,7 +42,7 @@ const services = {
     },
     {
       title: "Smart Surveillance",
-      image: "/images/smart-surveillance.png",
+      image: "/images/smart-surveillance.jpeg",
       description: "Integration of modern technology including CCTV monitoring and digital visitor management systems."
     },
     // Adding more items to match previous count if needed, or stick to the 3 distinct ones shown in user edit plus the 4th one I added earlier

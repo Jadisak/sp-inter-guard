@@ -1,4 +1,7 @@
 <template>
+  <!-- Background Decor -->
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-blue-500/90 blur-[120px] -z-10 rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-1/4 h-64 bg-emerald-500/90 blur-[100px] -z-10 rounded-full pointer-events-none"></div>
   <section class="px-8 py-20 max-w-6xl mx-auto">
     <!-- Title -->
     <div class="text-center mb-16">
@@ -23,7 +26,7 @@
       </div>
 
       <div class="h-80 bg-slate-900 border border-slate-800 shadow-xl hover:border-blue-500/30 transition-all rounded-2xl flex items-center justify-center text-slate-500 z-20">
-        <img src="/images/chatwilai.webp" alt="Office Photo" class="w-full h-full object-cover rounded-2xl">
+        <img src="/images/chatwilai.jpeg" alt="Office Photo" class="w-full h-full object-cover rounded-2xl">
       </div>
     </div>
 
@@ -58,9 +61,6 @@
     </div>
 
   </section>
-  <!-- Background Decor -->
-    <div class="absolute top-0 right-0 w-1/3 h-full bg-blue-500/90 blur-[120px] z-0 rounded-full pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-1/4 h-64 bg-emerald-500/90 blur-[100px] z-0 rounded-full pointer-events-none"></div>
 </template>
 
 <script setup>
