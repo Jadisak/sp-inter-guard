@@ -40,6 +40,15 @@
   <!-- Mobile Menu Dropdown -->
   <div v-if="isMenuOpen" class="md:hidden fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl pt-24 px-8">
      <div class="flex flex-col gap-6 text-lg font-medium text-slate-300">
+        <div class="flex items-center justify-between">
+          <span class="text-slate-400 text-sm">Language</span>
+          <button @click="toggleLanguage" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 text-sm font-bold text-slate-300 border border-slate-700">
+            <span :class="{'text-blue-400': currentLanguage === 'TH'}">TH</span>
+            <span class="text-slate-600">/</span>
+            <span :class="{'text-blue-400': currentLanguage === 'EN'}">EN</span>
+          </button>
+        </div>
+
         <router-link to="/" @click="isMenuOpen = false" class="hover:text-white transition-colors">{{ t.home }}</router-link>
         <router-link to="/about" @click="isMenuOpen = false" class="hover:text-white transition-colors">{{ t.about }}</router-link>
         <router-link to="/services" @click="isMenuOpen = false" class="hover:text-white transition-colors">{{ t.services }}</router-link>
