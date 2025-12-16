@@ -32,7 +32,7 @@ const services = {
     },
     {
       title: "Event Security",
-      image: "/images/check-02.webp",
+      image: "/images/vip.webp",
       description: "Comprehensive crowd control and VIP protection for concerts, corporate events, and private gatherings."
     },
     {
