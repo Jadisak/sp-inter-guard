@@ -8,11 +8,11 @@
         <!-- Info Side -->
         <div>
            <div class="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm font-semibold mb-6">
-            Contact Us
+            {{ t.badge }}
            </div>
-           <h2 class="text-4xl md:text-5xl font-bold mb-8">Get in Touch</h2>
+           <h2 class="text-4xl md:text-5xl font-bold mb-8">{{ t.title }}</h2>
            <p class="text-slate-400 mb-12 text-lg leading-relaxed">
-             Have questions about our security services? Reach out to us directly or fill out the form to request a consultation.
+             {{ t.subtitle }}
            </p>
            
            <div class="space-y-8">
@@ -25,11 +25,8 @@
                     </svg>
                  </div>
                  <div>
-                    <h4 class="font-bold text-white text-lg mb-2">Head Office</h4>
-                    <p class="text-slate-400">
-                      123 Security Building, Rama 9 Road,<br>
-                      Bangkok 10310, Thailand
-                    </p>
+                    <h4 class="font-bold text-white text-lg mb-2">{{ t.headOffice }}</h4>
+                    <p class="text-slate-400" v-html="t.address"></p>
                  </div>
               </div>
 
@@ -41,7 +38,7 @@
                     </svg>
                  </div>
                  <div>
-                    <h4 class="font-bold text-white text-lg mb-2">Phone Support</h4>
+                    <h4 class="font-bold text-white text-lg mb-2">{{ t.phoneTitle }}</h4>
                     <div class="space-y-1">
                       <p class="text-slate-400 hover:text-white transition-colors cursor-pointer">02-123-4567 (Office)</p>
                       <p class="text-slate-400 hover:text-white transition-colors cursor-pointer">081-234-5678 (Hotline)</p>
@@ -57,7 +54,7 @@
                     </svg>
                  </div>
                  <div>
-                    <h4 class="font-bold text-white text-lg mb-2">Email</h4>
+                    <h4 class="font-bold text-white text-lg mb-2">{{ t.emailTitle }}</h4>
                     <p class="text-slate-400">contact@spinterguard.com</p>
                  </div>
               </div>
@@ -70,33 +67,78 @@
             <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[60px] rounded-full pointer-events-none"></div>
 
            <form class="space-y-6 relative z-10">
-              <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
+              <h3 class="text-2xl font-bold mb-6">{{ t.sendMsgTitle }}</h3>
               <div class="grid md:grid-cols-2 gap-6">
                  <div>
-                    <label class="block text-sm font-medium text-slate-400 mb-2">Full Name</label>
-                    <input class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors placeholder-slate-600" placeholder="John Doe" />
+                    <label class="block text-sm font-medium text-slate-400 mb-2">{{ t.labelName }}</label>
+                    <input class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors placeholder-slate-600" :placeholder="t.placeholderName" />
                  </div>
                  <div>
-                    <label class="block text-sm font-medium text-slate-400 mb-2">Phone Number</label>
+                    <label class="block text-sm font-medium text-slate-400 mb-2">{{ t.labelPhone }}</label>
                     <input class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors placeholder-slate-600" placeholder="+66 XX XXX XXXX" />
                  </div>
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-slate-400 mb-2">Email Address</label>
+                <label class="block text-sm font-medium text-slate-400 mb-2">{{ t.labelEmail }}</label>
                  <input class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors placeholder-slate-600" placeholder="john@company.com" />
               </div>
 
               <div>
-                 <label class="block text-sm font-medium text-slate-400 mb-2">Message</label>
-                 <textarea rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors placeholder-slate-600 resize-none" placeholder="Tell us about your security needs..."></textarea>
+                 <label class="block text-sm font-medium text-slate-400 mb-2">{{ t.labelMessage }}</label>
+                 <textarea rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors placeholder-slate-600 resize-none" :placeholder="t.placeholderMsg"></textarea>
               </div>
               
               <button class="w-full py-4 bg-linear-to-r from-blue-600 to-emerald-500 hover:from-blue-500 hover:to-emerald-400 text-white font-bold rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all transform hover:-translate-y-1">
-                Send Message
+                {{ t.btnSend }}
               </button>
            </form>
         </div>
      </div>
   </section>
 </template>
+<script setup>
+import { computed } from 'vue'
+import { useLanguage } from '../composables/useLanguage'
+
+const { currentLanguage } = useLanguage()
+
+const translations = {
+  EN: {
+    badge: 'Contact Us',
+    title: 'Get in Touch',
+    subtitle: 'Have questions about our security services? Reach out to us directly or fill out the form to request a consultation.',
+    headOffice: 'Head Office',
+    address: '123 Security Building, Rama 9 Road,<br>Bangkok 10310, Thailand',
+    phoneTitle: 'Phone Support',
+    emailTitle: 'Email',
+    sendMsgTitle: 'Send us a Message',
+    labelName: 'Full Name',
+    labelPhone: 'Phone Number',
+    labelEmail: 'Email Address',
+    labelMessage: 'Message',
+    placeholderName: 'John Doe',
+    placeholderMsg: 'Tell us about your security needs...',
+    btnSend: 'Send Message'
+  },
+  TH: {
+    badge: 'ติดต่อเรา',
+    title: 'ติดต่อสอบถาม',
+    subtitle: 'มีคำถามเกี่ยวกับบริการรักษาความปลอดภัยของเราหรือไม่? ติดต่อเราได้โดยตรง หรือกรอกแบบฟอร์มเพื่อขอคำปรึกษา',
+    headOffice: 'สำนักงานใหญ่',
+    address: '123 อาคารซีเคียวริตี้ ถนนพระราม 9<br>กรุงเทพมหานคร 10310',
+    phoneTitle: 'เบอร์โทรศัพท์ติดต่อ',
+    emailTitle: 'อีเมล',
+    sendMsgTitle: 'ส่งข้อความถึงเรา',
+    labelName: 'ชื่อ-นามสกุล',
+    labelPhone: 'เบอร์โทรศัพท์',
+    labelEmail: 'อีเมล',
+    labelMessage: 'ข้อความ',
+    placeholderName: 'สมชาย รักดี',
+    placeholderMsg: 'บอกเราเกี่ยวกับความต้องการด้านความปลอดภัยของคุณ...',
+    btnSend: 'ส่งข้อความ'
+  }
+}
+
+const t = computed(() => translations[currentLanguage.value])
+</script>
