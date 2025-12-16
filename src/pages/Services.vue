@@ -5,38 +5,21 @@
 
   <section class="px-8 py-20 max-w-7xl mx-auto">
     <h2 class="text-4xl font-bold mb-12">Our Services</h2>
-    <div class="grid md:grid-cols-4 gap-6">
+    <div class="grid md:grid-cols-3 gap-3">
       <ServiceCard 
         title="Security Guards" 
+        image="/images/check-01.webp"
         description="Professional, well-trained security personnel ready to protect your premises with strict discipline and 24/7 vigilance."
       />
       <ServiceCard 
         title="Event Security" 
+        image="/images/check-02.webp"
         description="Comprehensive crowd control and VIP protection for concerts, corporate events, and private gatherings."
       />
       <ServiceCard 
         title="Corporate Protection" 
+        image="/images/check-03.webp"
         description="Tailored security solutions for office buildings and corporate HQs, focusing on access control and safety."
-      />
-      <ServiceCard 
-        title="Smart Surveillance" 
-        description="Integration of modern technology including CCTV monitoring and digital visitor management systems."
-      />
-      <ServiceCard 
-        title="Security Guards" 
-        description="Professional, well-trained security personnel ready to protect your premises with strict discipline and 24/7 vigilance."
-      />
-      <ServiceCard 
-        title="Event Security" 
-        description="Comprehensive crowd control and VIP protection for concerts, corporate events, and private gatherings."
-      />
-      <ServiceCard 
-        title="Corporate Protection" 
-        description="Tailored security solutions for office buildings and corporate HQs, focusing on access control and safety."
-      />
-      <ServiceCard 
-        title="Smart Surveillance" 
-        description="Integration of modern technology including CCTV monitoring and digital visitor management systems."
       />
     </div>
   </section>
