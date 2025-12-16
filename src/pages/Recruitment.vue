@@ -1,18 +1,72 @@
+<script setup>
+import { computed } from 'vue'
+import { useLanguage } from '../composables/useLanguage'
+
+const { currentLanguage } = useLanguage()
+
+const translations = {
+  EN: {
+    title: 'Join Our Team',
+    subtitle: 'We are looking for dedicated individuals to grow with us.',
+    badge: 'Now Hiring',
+    roleTitle: 'Security Guard Personnel',
+    qualificationsTitle: 'Qualifications',
+    qualifications: [
+      'Age 18 - 55 years old',
+      'Healthy and physically fit',
+      'No criminal record',
+      'No experience required (Training provided)'
+    ],
+    benefitsTitle: 'Benefits',
+    benefits: [
+      'Competitive salary',
+      'Social Security',
+      'Uniforms & Equipment'
+    ],
+    applyBtn: 'Apply Now',
+    quote: '"Join a team that values integrity."'
+  },
+  TH: {
+    title: 'ร่วมงานกับเรา',
+    subtitle: 'เรากำลังมองหาบุคลากรที่มีความมุ่งมั่นเพื่อเติบโตไปพร้อมกับเรา',
+    badge: 'เปิดรับสมัคร',
+    roleTitle: 'พนักงานรักษาความปลอดภัย',
+    qualificationsTitle: 'คุณสมบัติ',
+    qualifications: [
+      'ชาย/หญิง อายุ 18-55 ปี',
+      'สุขภาพแข็งแรง',
+      'ไม่มีประวัติอาชญากรรม',
+      'ไม่จำเป็นต้องมีประสบการณ์ (มีฝึกอบรมให้)'
+    ],
+    benefitsTitle: 'สวัสดิการ',
+    benefits: [
+      'ค่าแรงมาตรฐาน / รายได้ดี',
+      'ประกันสังคม',
+      'ชุดเครื่องแบบและอุปกรณ์'
+    ],
+    applyBtn: 'สมัครเลย',
+    quote: '"มาเป็นส่วนหนึ่งกับเรา ที่ให้ความสำคัญเรื่องความซื่อสัตย์"'
+  }
+}
+
+const t = computed(() => translations[currentLanguage.value])
+</script>
+
 <template>
   <section class="max-w-6xl mx-auto px-8 py-24">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4">Join Our Team</h2>
-      <p class="text-slate-400 text-lg">We are looking for dedicated individuals to grow with us.</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">{{ t.title }}</h2>
+      <p class="text-slate-400 text-lg">{{ t.subtitle }}</p>
     </div>
 
-    <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+    <div class="bg-indigo-900/80 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
       <div class="grid md:grid-cols-2">
         <div class="p-10 md:p-14">
-          <div class="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm font-semibold mb-6">
-            Now Hiring
+          <div class="inline-block px-3 py-1 bg-emerald-500/30 text-emerald-400 rounded-full text-sm font-semibold mb-6">
+            {{ t.badge }}
           </div>
           <h3 class="text-3xl font-bold mb-6 text-white leading-tight">
-            Security Guard Personnel <br/> (พนักงานรักษาความปลอดภัย)
+            {{ t.roleTitle }}
           </h3>
           
           <div class="space-y-6 mb-10">
@@ -23,12 +77,9 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-white">Qualifications</h4>
+                <h4 class="font-semibold text-white">{{ t.qualificationsTitle }}</h4>
                 <ul class="mt-2 space-y-1 text-slate-400 list-disc pl-4 text-sm">
-                  <li>Age 18 - 55 years old (ชาย/หญิง อายุ 18-55 ปี)</li>
-                  <li>Healthy and physically fit (สุขภาพแข็งแรง)</li>
-                  <li>No criminal record (ไม่มีประวัติอาชญากรรม)</li>
-                  <li>No experience required (Training provided)</li>
+                  <li v-for="(item, i) in t.qualifications" :key="i">{{ item }}</li>
                 </ul>
               </div>
             </div>
@@ -40,27 +91,25 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-white">Benefits</h4>
+                <h4 class="font-semibold text-white">{{ t.benefitsTitle }}</h4>
                  <ul class="mt-2 space-y-1 text-slate-400 list-disc pl-4 text-sm">
-                  <li>Competitive salary (ค่าแรงมาตรฐาน)</li>
-                  <li>Social Security (ประกันสังคม)</li>
-                  <li>Uniforms & Equipment (ชุดเครื่องแบบ)</li>
+                  <li v-for="(item, i) in t.benefits" :key="i">{{ item }}</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <RouterLink to="/contact" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold transition-all">
-            Apply Now
+            {{ t.applyBtn }}
           </RouterLink>
         </div>
 
         <!-- Image Side -->
         <div class="hidden md:block bg-slate-800 relative">
-           <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-60"></div>
-           <div class="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent"></div>
-           <div class="absolute bottom-10 left-10 p-6">
-              <p class="text-white font-medium text-lg">"Join a team that values discipline and integrity."</p>
+           <div class="absolute inset-0 bg-[url('images/recruit.png')] bg-cover bg-center xmix-blend-overlay opacity-90"></div>
+           <div class="absolute inset-0 bg-linear-to-t from-black/90 via-50% via-black/10 to-black/5"></div>
+           <div class="absolute bottom-10 w-full px-12">
+              <p class="text-white text-center font-extralight text-2xl">{{ t.quote }}</p>
            </div>
         </div>
       </div>

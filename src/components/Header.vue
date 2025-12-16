@@ -13,6 +13,7 @@
         <router-link to="/about" class="hover:text-white transition-colors">{{ t.about }}</router-link>
         <router-link to="/services" class="hover:text-white transition-colors">{{ t.services }}</router-link>
         <router-link to="/contact" class="hover:text-white transition-colors">{{ t.contact }}</router-link>
+        <router-link to="/recruitment" class="hover:text-white transition-colors">{{ t.recruitment }}</router-link>
       </nav>
 
       <div class="hidden md:flex items-center gap-4">
@@ -43,6 +44,7 @@
         <router-link to="/about" @click="isMenuOpen = false" class="hover:text-white transition-colors">{{ t.about }}</router-link>
         <router-link to="/services" @click="isMenuOpen = false" class="hover:text-white transition-colors">{{ t.services }}</router-link>
         <router-link to="/contact" @click="isMenuOpen = false" class="hover:text-white transition-colors">{{ t.contact }}</router-link>
+        <router-link to="/recruitment" @click="isMenuOpen = false" class="hover:text-white transition-colors">{{ t.recruitment }}</router-link>
         
         <div class="pt-6 border-t border-slate-800">
            <router-link to="/contact" @click="isMenuOpen = false" class="block w-full text-center px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-all shadow-lg shadow-blue-500/20">
@@ -66,14 +68,16 @@ const translations = {
     about: 'About',
     services: 'Services',
     contact: 'Contact',
-    getQuote: 'Get a Quote'
+    getQuote: 'Get a Quote',
+    recruitment: 'Join Team'
   },
   TH: {
     home: 'หน้าแรก',
     about: 'เกี่ยวกับเรา',
     services: 'บริการของเรา',
     contact: 'ติดต่อเรา',
-    getQuote: 'ขอใบเสนอราคา'
+    getQuote: 'ขอใบเสนอราคา',
+    recruitment: 'สมัครงาน'
   }
 }
 

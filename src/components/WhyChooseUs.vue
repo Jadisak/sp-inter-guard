@@ -47,7 +47,7 @@ const t = computed(() => translations[currentLanguage.value])
 </script>
 
 <template>
-  <section class="px-8 py-24 bg-indigo-950/40 backdrop-blur-md relative overflow-hidden z-20">
+  <section class="px-8 py-24 bg-indigo-800/40 backdrop-blur-md relative overflow-hidden z-20">
     <!-- Decorative background elements -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-blue-500/5 blur-[100px] pointer-events-none"></div>
 
