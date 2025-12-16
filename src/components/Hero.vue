@@ -3,16 +3,16 @@
     <div class="absolute top-0 right-0 w-1/3 h-full bg-blue-500/90 blur-[120px] z-10 rounded-full pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 w-1/4 h-64 bg-emerald-500/90 blur-[100px] z-10 rounded-full pointer-events-none"></div>
 
-  <section class="relative max-w-7xl mx-auto px-8 py-20 grid md:grid-cols-2 gap-16 items-center overflow-hidden bg-url('/images/academy-06.png') bg-cover bg-center z-10">
+  <section class="relative max-w-7xl mx-auto px-8 py-12 grid md:grid-cols-2 gap-12 items-center overflow-hidden bg-url('/images/academy-06.png') bg-cover bg-center z-10">
     <div class="relative z-10">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-400/50 border border-slate-700 mb-6 w-fit">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
         <span class="text-xs font-medium text-emerald-400 tracking-wide uppercase">{{ t.available }}</span>
       </div>
       
-      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+      <h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
         {{ t.smartSecurity }} <br />
-        <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-emerald-400">
+        <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 via-sky-300 via-30% to-green-300">
           {{ t.saferFuture }}
         </span>
       </h1>
