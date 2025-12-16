@@ -55,7 +55,7 @@ const services = {
     },
     {
       title: "การรักษาความปลอดภัยงานอีเวนต์",
-      image: "/images/check-02.webp",
+      image: "/images/vip.webp",
       description: "การควบคุมฝูงชนและการอารักขา VIP แบบครบวงจร สำหรับคอนเสิร์ต งานบริษัท และงานเลี้ยงส่วนตัว"
     },
     {
@@ -65,7 +65,7 @@ const services = {
     },
     {
       title: "ระบบตรวจตราอัจฉริยะ",
-      image: "/images/smart-surveillance.png",
+      image: "/images/smart-surveillance.jpeg",
       description: "การผสานรวมเทคโนโลยีทันสมัย รวมถึงการตรวจสอบกล้องวงจรปิดและระบบบริหารจัดการผู้มาติดต่อแบบดิจิทัล"
     }
   ]
