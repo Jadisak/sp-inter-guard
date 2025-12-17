@@ -40,8 +40,8 @@
                  <div>
                     <h4 class="font-bold text-white text-lg mb-2">{{ t.phoneTitle }}</h4>
                     <div class="space-y-1">
-                      <p class="text-slate-400 hover:text-white transition-colors cursor-pointer">02-123-4567 (Office)</p>
-                      <p class="text-slate-400 hover:text-white transition-colors cursor-pointer">081-234-5678 (Hotline)</p>
+                      <p class="text-slate-400 hover:text-white transition-colors cursor-pointer">(+66) 02-077-6792 (Office)</p>
+                      <p class="text-slate-400 hover:text-white transition-colors cursor-pointer">(+66) 089-235-8798 (Hotline)</p>
                     </div>
                  </div>
               </div>
@@ -55,7 +55,7 @@
                  </div>
                  <div>
                     <h4 class="font-bold text-white text-lg mb-2">{{ t.emailTitle }}</h4>
-                    <p class="text-slate-400">contact@spinterguard.com</p>
+                    <p class="text-slate-400">interguardsp@gmail.com</p>
                  </div>
               </div>
            </div>
@@ -109,7 +109,7 @@ const translations = {
     title: 'Get in Touch',
     subtitle: 'Have questions about our security services? Reach out to us directly or fill out the form to request a consultation.',
     headOffice: 'Head Office',
-    address: '123 Security Building, Rama 9 Road,<br>Bangkok 10310, Thailand',
+    address: '95/43 Moo 5 T.Bangmeenang A.Bangyai Nonthaburi 10400',
     phoneTitle: 'Phone Support',
     emailTitle: 'Email',
     sendMsgTitle: 'Send us a Message',
@@ -126,7 +126,7 @@ const translations = {
     title: 'ติดต่อสอบถาม',
     subtitle: 'มีคำถามเกี่ยวกับบริการรักษาความปลอดภัยของเราหรือไม่? ติดต่อเราได้โดยตรง หรือกรอกแบบฟอร์มเพื่อขอคำปรึกษา',
     headOffice: 'สำนักงานใหญ่',
-    address: '123 อาคารซีเคียวริตี้ ถนนพระราม 9<br>กรุงเทพมหานคร 10310',
+    address: '95/43 หมู่ 5 ต.บางแม่นาง อ.บางใหญ่ จ.นนทบูรี 10400',
     phoneTitle: 'เบอร์โทรศัพท์ติดต่อ',
     emailTitle: 'อีเมล',
     sendMsgTitle: 'ส่งข้อความถึงเรา',
