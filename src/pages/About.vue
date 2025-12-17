@@ -26,7 +26,7 @@
       </div>
 
       <div class="h-80 bg-slate-900 border border-slate-600 shadow-xl hover:border-blue-500/30 transition-all rounded-2xl flex items-center justify-center text-slate-500 z-20 w-full relative">
-        <p class="text-center text-white text-sm bottom-2 right-6 w-fit absolute py-1.5 px-2 bg-gray-500/60"><span class="text-center text-amber-300 text-xs">Marketing Director :</span>&nbsp;Chatwilai Panthong</p>
+        <p class="text-center text-white text-sm bottom-2 right-6 w-fit absolute py-1.5 px-2 bg-gray-500/60"><span class="text-center text-amber-300 text-xs">{{ t.marketingDirectorTitle }} :</span>&nbsp;{{ t.marketingDirectorName }}</p>
         <img src="/images/chatwilai.jpeg" alt="Office Photo" class="w-full h-full object-cover rounded-2xl">
       </div>
     </div>
@@ -92,7 +92,9 @@ const translations = {
       { title: 'Responsibility', desc: 'Full responsibility for safety and assigned duties.' },
       { title: 'Reliability', desc: 'Clients can depend on us 24/7.' },
       { title: 'Professionalism', desc: 'Continuous training and performance improvement.' }
-    ]
+    ],
+    marketingDirectorTitle: 'Marketing Director',
+    marketingDirectorName: 'Chatwilai Panthong'
   },
   TH: {
     title: 'เกี่ยวกับ S&P INTER GUARD',
@@ -115,7 +117,9 @@ const translations = {
       { title: 'ความรับผิดชอบ', desc: 'ความรับผิดชอบเต็มที่ต่อความปลอดภัยและหน้าที่ที่ได้รับมอบหมาย' },
       { title: 'ความน่าเชื่อถือ', desc: 'ลูกค้าสามารถพึ่งพาเราได้ตลอด 24 ชั่วโมง' },
       { title: 'ความเป็นมืออาชีพ', desc: 'การฝึกอบรมและปรับปรุงประสิทธิภาพอย่างต่อเนื่อง' }
-    ]
+    ],
+    marketingDirectorTitle: 'ผู้จัดการฝ่ายการตลาด',
+    marketingDirectorName: 'คุณฉัตรวิไล ปานทอง'
   }
 }
 
