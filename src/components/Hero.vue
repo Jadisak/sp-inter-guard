@@ -32,8 +32,8 @@
     </div>
     
     <!-- Visual / Illustration Placeholder -->
-    <div ref="visualContainer" class="relative h-[400px] rounded-3xl bg-linear-to-tr from-slate-700 via-orange-300/60 via-15% to-slate-500 border border-slate-700 flex items-center justify-center overflow-hidden group shadow-2xl opacity-0 scale-95">
-        <div class="absolute inset-0 bg-[url('/images/hero-bg.jpeg')] bg-cover bg-center opacity-100 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"></div>
+    <div ref="visualContainer" class="relative h-[400px] rounded-3xl bg-linear-to-tr from-slate-700 via-orange-300/20 via-15% to-slate-500 border border-slate-700 flex items-center justify-center overflow-hidden group shadow-2xl opacity-0 scale-95">
+        <div class="absolute inset-0 bg-[url('/images/smart-security-hero.png')] bg-cover bg-center opacity-100 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"></div>
         <div class="relative z-10 text-center p-0 -bottom-16">
             <h3 class="text-xl font-semibold text-white mb-2 w-fit mx-auto px-3 py-1 border bg-white/20">{{ t.professionalGuard }}</h3>
             <p class="text-slate-200">{{ t.trusted }}</p>
@@ -59,27 +59,27 @@ const decor1 = useTemplateRef('decor1')
 const decor2 = useTemplateRef('decor2')
 
 onMounted(() => {
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1 } })
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.8 } })
 
   tl.to([decor1.value, decor2.value], {
     opacity: 0.6,
-    duration: 2,
-    stagger: 0.5
+    duration: 1.5,
+    stagger: 0.3
   })
   .fromTo(badge.value, 
     { y: 20, opacity: 0 },
     { y: 0, opacity: 1 },
-    "-=1.5"
+    "-=1.4"
   )
   .fromTo(heading.value,
     { y: 30, opacity: 0 },
     { y: 0, opacity: 1 },
-    "-=0.8"
+    "-=0.6"
   )
   .fromTo(description.value,
     { y: 20, opacity: 0 },
     { y: 0, opacity: 1 },
-    "-=0.6"
+    "-=0.5"
   )
   .fromTo(ctaButtons.value,
     { y: 20, opacity: 0 },
@@ -87,9 +87,9 @@ onMounted(() => {
     "-=0.4"
   )
   .fromTo(visualContainer.value,
-    { scale: 0.9, opacity: 0, x: 50 },
-    { scale: 1, opacity: 1, x: 0, duration: 1.2, ease: 'back.out(1.7)' },
-    "-=1"
+    { scale: 0.95, opacity: 0, x: 30 },
+    { scale: 1, opacity: 1, x: 0, duration: 1, ease: 'back.out(1.2)' },
+    "-=0.7"
   )
 
   // Subtle floating animation for decor
@@ -104,7 +104,7 @@ onMounted(() => {
   gsap.to(decor2.value, {
     y: -20,
     x: 10,
-    duration: 5,
+    duration: 2,
     repeat: -1,
     yoyo: true,
     ease: "sine.inOut"

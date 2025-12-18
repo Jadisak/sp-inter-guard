@@ -14,7 +14,7 @@
     </div>
 
     <!-- Company Overview -->
-    <div class="grid md:grid-cols-2 gap-6 items-center mb-20 z-20">
+    <div class="grid md:grid-cols-2 gap-8 items-center mb-20 z-20">
       <div class="">
         <h2 class="text-3xl font-bold mb-4">{{ t.whoWeAreTitle }}</h2>
         <p class="text-slate-300 leading-relaxed">
