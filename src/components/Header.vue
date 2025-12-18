@@ -1,6 +1,6 @@
 <template>
-  <header class="px-2 py-0 bg-slate-900/30 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between border-b border-slate-800">
+  <header class="px-0 py-0 bg-slate-900/30 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between pl-6 pr-8 border-b border-slate-800">
       <div class="flex items-center gap-2">
         <div class="w-20 h-20 flex items-center justify-center">
           <span><img src="/images/Badge-Arm.png" alt="Logo" class=""></span>
