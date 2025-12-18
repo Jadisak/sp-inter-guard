@@ -1,27 +1,27 @@
 <template>
   <!-- Background Decor -->
-    <div class="absolute top-0 right-0 w-1/3 h-full bg-blue-500/90 blur-[120px] z-10 rounded-full pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-1/4 h-64 bg-emerald-500/90 blur-[100px] z-10 rounded-full pointer-events-none"></div>
+    <div ref="decor1" class="absolute top-0 right-0 w-1/3 h-full bg-blue-500/90 blur-[120px] z-10 rounded-full pointer-events-none opacity-0"></div>
+    <div ref="decor2" class="absolute bottom-0 left-0 w-1/4 h-64 bg-emerald-500/90 blur-[100px] z-10 rounded-full pointer-events-none opacity-0"></div>
 
-  <section class="relative max-w-7xl mx-auto px-8 py-12 grid md:grid-cols-2 gap-12 items-center overflow-hidden bg-url('/images/academy-06.png') bg-cover bg-center z-10">
+  <section ref="heroSection" class="relative max-w-7xl mx-auto px-8 py-12 grid md:grid-cols-2 gap-12 items-center overflow-hidden bg-url('/images/academy-06.png') bg-cover bg-center z-10">
     <div class="relative z-10">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-400/50 border border-slate-700 mb-6 w-fit">
+      <div ref="badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-400/50 border border-slate-700 mb-6 w-fit opacity-0">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
         <span class="text-xs font-medium text-emerald-400 tracking-wide uppercase">{{ t.available }}</span>
       </div>
       
-      <h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+      <h1 ref="heading" class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight opacity-0">
         {{ t.smartSecurity }} <br />
         <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 via-sky-300 via-30% to-green-300">
           {{ t.saferFuture }}
         </span>
       </h1>
       
-      <p class="mt-6 text-lg text-slate-400 max-w-lg leading-relaxed">
+      <p ref="description" class="mt-6 text-lg text-slate-400 max-w-lg leading-relaxed opacity-0">
         <span class="text-white">S&P INTER GUARD</span> {{ t.description }}
       </p>
       
-      <div class="mt-10 flex xflex-wrap gap-4 borderx">
+      <div ref="ctaButtons" class="mt-10 flex xflex-wrap gap-4 borderx opacity-0">
         <RouterLink to="/contact" class="px-3 lg:px-8 py-4 border border-indigo-400/70 bg-lime-500/60 hover:bg-emerald-300 hover:text-slate-900 xrounded-xl font-bold transition-all transform duration-700 shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:shadow-[0_0_30px_rgba(16,185,129,0.9)]">
           {{ t.getQuote }}
         </RouterLink>
@@ -32,7 +32,7 @@
     </div>
     
     <!-- Visual / Illustration Placeholder -->
-    <div class="relative h-[400px] rounded-3xl bg-linear-to-tr from-slate-700 via-orange-300/60 via-15% to-slate-500 border border-slate-700 flex items-center justify-center overflow-hidden group shadow-2xl">
+    <div ref="visualContainer" class="relative h-[400px] rounded-3xl bg-linear-to-tr from-slate-700 via-orange-300/60 via-15% to-slate-500 border border-slate-700 flex items-center justify-center overflow-hidden group shadow-2xl opacity-0 scale-95">
         <div class="absolute inset-0 bg-[url('/images/hero-bg.jpeg')] bg-cover bg-center opacity-100 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"></div>
         <div class="relative z-10 text-center p-0 -bottom-16">
             <h3 class="text-xl font-semibold text-white mb-2 w-fit mx-auto px-3 py-1 border bg-white/20">{{ t.professionalGuard }}</h3>
@@ -43,10 +43,73 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted, useTemplateRef } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
+import gsap from 'gsap'
 
 const { currentLanguage } = useLanguage()
+
+const heroSection = useTemplateRef('heroSection')
+const badge = useTemplateRef('badge')
+const heading = useTemplateRef('heading')
+const description = useTemplateRef('description')
+const ctaButtons = useTemplateRef('ctaButtons')
+const visualContainer = useTemplateRef('visualContainer')
+const decor1 = useTemplateRef('decor1')
+const decor2 = useTemplateRef('decor2')
+
+onMounted(() => {
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1 } })
+
+  tl.to([decor1.value, decor2.value], {
+    opacity: 0.6,
+    duration: 2,
+    stagger: 0.5
+  })
+  .fromTo(badge.value, 
+    { y: 20, opacity: 0 },
+    { y: 0, opacity: 1 },
+    "-=1.5"
+  )
+  .fromTo(heading.value,
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1 },
+    "-=0.8"
+  )
+  .fromTo(description.value,
+    { y: 20, opacity: 0 },
+    { y: 0, opacity: 1 },
+    "-=0.6"
+  )
+  .fromTo(ctaButtons.value,
+    { y: 20, opacity: 0 },
+    { y: 0, opacity: 1 },
+    "-=0.4"
+  )
+  .fromTo(visualContainer.value,
+    { scale: 0.9, opacity: 0, x: 50 },
+    { scale: 1, opacity: 1, x: 0, duration: 1.2, ease: 'back.out(1.7)' },
+    "-=1"
+  )
+
+  // Subtle floating animation for decor
+  gsap.to(decor1.value, {
+    y: 20,
+    x: -10,
+    duration: 4,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  })
+  gsap.to(decor2.value, {
+    y: -20,
+    x: 10,
+    duration: 5,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  })
+})
 
 const translations = {
   EN: {
