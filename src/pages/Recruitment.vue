@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 
 const { currentLanguage } = useLanguage()
@@ -24,7 +24,9 @@ const translations = {
       'Uniforms & Equipment'
     ],
     applyBtn: 'Apply Now',
-    quote: '"Join a team that values integrity."'
+    quoteWelcome: 'Welcoming the next generation of security professionals.',
+    quoteTraining: 'Rigorous training ensures the highest standards of safety.',
+    quoteSalute: 'Excellence in every detail, integrity in every action.'
   },
   TH: {
     title: 'ร่วมงานกับเรา',
@@ -45,11 +47,32 @@ const translations = {
       'ชุดเครื่องแบบและอุปกรณ์'
     ],
     applyBtn: 'สมัครเลย',
-    quote: '"มาเป็นส่วนหนึ่งกับเรา ที่ให้ความสำคัญเรื่องความซื่อสัตย์"'
+    quoteWelcome: 'ยินดีต้อนรับบุคลากรรุ่นใหม่สู่ทีมมืออาชีพ',
+    quoteTraining: 'การฝึกอบรมเข้มข้น เพื่อมาตรฐานความปลอดภัยสูงสุด',
+    quoteSalute: 'ทุกรายละเอียดคือความภูมิใจ ทุกการกระทำคือความซื่อสัตย์'
   }
 }
 
 const t = computed(() => translations[currentLanguage.value])
+
+const currentSlide = ref(0)
+const slides = computed(() => [
+  { url: '/images/recruit-welcome.png', quote: t.value.quoteWelcome },
+  { url: '/images/recruit-training.png', quote: t.value.quoteTraining },
+  { url: '/images/recruit-salute.png', quote: t.value.quoteSalute }
+])
+
+let slideInterval = null
+
+onMounted(() => {
+  slideInterval = setInterval(() => {
+    currentSlide.value = (currentSlide.value + 1) % slides.value.length
+  }, 5000)
+})
+
+onUnmounted(() => {
+  if (slideInterval) clearInterval(slideInterval)
+})
 </script>
 
 <template>
@@ -104,15 +127,51 @@ const t = computed(() => translations[currentLanguage.value])
           </RouterLink>
         </div>
 
-        <!-- Image Side -->
-        <div class="hidden md:block bg-slate-800 relative">
-           <div class="absolute inset-0 bg-[url('/images/recruit.webp')] bg-cover bg-center xmix-blend-overlay opacity-90"></div>
-           <div class="absolute inset-0 bg-linear-to-t from-black/90 via-50% via-black/10 to-black/5"></div>
-           <div class="absolute bottom-10 w-full px-12">
-              <p class="text-white text-center font-extralight text-2xl">{{ t.quote }}</p>
-           </div>
+        <!-- Image Slider Side -->
+        <div class="hidden md:block bg-slate-800 relative overflow-hidden h-full">
+          <TransitionGroup name="fade">
+            <div 
+              v-for="(slide, index) in slides" 
+              :key="index"
+              v-show="currentSlide === index"
+              class="absolute inset-0"
+            >
+              <div 
+                class="absolute inset-0 bg-cover bg-center transition-transform duration-5000 ease-linear"
+                :class="currentSlide === index ? 'scale-110' : 'scale-100'"
+                :style="{ backgroundImage: `url(${slide.url})` }"
+              ></div>
+              <div class="absolute inset-0 bg-linear-to-t from-black/90 via-50% via-black/10 to-black/5"></div>
+              <div class="absolute bottom-10 w-full px-12 transition-all duration-700 delay-300"
+                   :class="currentSlide === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'">
+                <p class="text-white text-center font-extralight text-2xl italic">{{ slide.quote }}</p>
+                
+                <!-- Dot indicators -->
+                <div class="flex justify-center gap-2 mt-6">
+                  <div 
+                    v-for="(_, i) in slides" 
+                    :key="i"
+                    class="w-2 h-2 rounded-full transition-all duration-300"
+                    :class="currentSlide === i ? 'bg-white w-6' : 'bg-white/30'"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </TransitionGroup>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

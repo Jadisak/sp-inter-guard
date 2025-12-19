@@ -8,7 +8,7 @@
       <h1 class="text-4xl md:text-5xl font-extrabold">
         {{ t.title }}
       </h1>
-      <p class="mt-6 text-slate-300 max-w-3xl mx-auto">
+      <p class="text-xl mt-6 text-slate-300 max-w-ภxl mx-auto">
         {{ t.subtitle }}
       </p>
     </div>
@@ -73,7 +73,7 @@ const { currentLanguage } = useLanguage()
 const translations = {
   EN: {
     title: 'About S&P INTER GUARD',
-    subtitle: 'A trusted security service provider in Thailand, delivering professional manpower, strict discipline, and modern security solutions.',
+    subtitle: 'A professional Thai security company with strict discipline and modern IT systems.',
     whoWeAreTitle: 'Who We Are',
     whoWeAreText1: 'S&P INTER GUARD is a professional security company in Thailand, providing trained security guards, event protection, and corporate security services. Our operations are based on discipline, responsibility, and continuous supervision.',
     whoWeAreText2: 'We serve factories, offices, residential projects, construction sites, and special events with a strong focus on safety, prevention, and professionalism.',
@@ -98,7 +98,7 @@ const translations = {
   },
   TH: {
     title: 'เกี่ยวกับ S&P INTER GUARD',
-    subtitle: 'ผู้ให้บริการรักษาความปลอดภัยที่เชื่อถือได้ในประเทศไทย มอบกำลังพลมืออาชีพ วินัยเคร่งครัด และโซลูชั่นความปลอดภัยที่ทันสมัย',
+    subtitle: 'บริษัทรักษาความปลอดภัยไทย มืออาชีพ วินัยเคร่งครัด และระบบไอทีที่ทันสมัย',
     whoWeAreTitle: 'เราคือใคร',
     whoWeAreText1: 'S&P INTER GUARD คือบริษัทรักษาความปลอดภัยมืออาชีพในประเทศไทย ให้บริการเจ้าหน้าที่รักษาความปลอดภัยที่ผ่านการฝึกอบรม การดูแลความปลอดภัยงานอีเวนต์ และบริการความปลอดภัยสำหรับองค์กร การดำเนินงานของเรายึดมั่นในระเบียบวินัย ความรับผิดชอบ และการกำกับดูแลอย่างต่อเนื่อง',
     whoWeAreText2: 'เราให้บริการโรงงาน อาคารสำนักงาน โครงการที่อยู่อาศัย ไซต์งานก่อสร้าง และงานพิเศษต่างๆ โดยมุ่งเน้นความปลอดภัย การป้องกัน และความเป็นมืออาชีพ',
