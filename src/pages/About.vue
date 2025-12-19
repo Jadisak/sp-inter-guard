@@ -25,9 +25,9 @@
         </p>
       </div>
 
-      <div class="h-80 bg-slate-900 border border-slate-600 shadow-xl hover:border-blue-500/30 transition-all rounded-2xl flex items-center justify-center text-slate-500 z-20 w-full relative">
-        <p class="text-center text-white text-sm bottom-2 right-6 w-fit absolute py-1.5 px-2 bg-gray-500/60"><span class="text-center text-amber-300 text-xs">{{ t.marketingDirectorTitle }} :</span>&nbsp;{{ t.marketingDirectorName }}</p>
-        <img src="/images/chatwilai.jpeg" alt="Office Photo" class="w-full h-full object-cover rounded-2xl">
+      <div class="h-80 bg-slate-800 border border-slate-700 shadow-xl overflow-hidden hover:border-blue-500/30 transition-all rounded-2xl flex items-center justify-center relative z-20 w-full group">
+        <p class="text-center text-white text-sm bottom-2 right-6 w-fit absolute py-1.5 px-2 bg-black/60 backdrop-blur-sm z-30 rounded-lg group-hover:scale-105 transition-transform"><span class="text-center text-amber-300 text-xs font-bold">{{ t.marketingDirectorTitle }} :</span>&nbsp;{{ t.marketingDirectorName }}</p>
+        <img src="/images/chatwilai.jpeg" alt="Office Photo" class="w-full h-full object-cover rounded-2xl transition-opacity duration-300" loading="lazy">
       </div>
     </div>
 

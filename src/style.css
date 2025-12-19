@@ -3,3 +3,12 @@
 :root {
     font-family: 'Noto Sans Thai', sans-serif;
 }
+
+@theme {
+  --animate-shimmer: shimmer 2s infinite linear;
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+}

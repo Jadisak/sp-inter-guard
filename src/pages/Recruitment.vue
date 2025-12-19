@@ -62,9 +62,26 @@ const slides = computed(() => [
   { url: '/images/recruit-salute.png', quote: t.value.quoteSalute }
 ])
 
+const isPreloaded = ref(false)
 let slideInterval = null
 
-onMounted(() => {
+const preloadImages = async () => {
+  const promises = slides.value.map((slide) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image()
+      img.src = slide.url
+      img.onload = resolve
+      img.onerror = resolve // Resolve anyway to not block
+    })
+  })
+  await Promise.all(promises)
+  isPreloaded.value = true
+}
+
+onMounted(async () => {
+  // Start preloading immediately
+  await preloadImages()
+  
   slideInterval = setInterval(() => {
     currentSlide.value = (currentSlide.value + 1) % slides.value.length
   }, 5000)
@@ -129,6 +146,11 @@ onUnmounted(() => {
 
         <!-- Image Slider Side -->
         <div class="hidden md:block bg-slate-800 relative overflow-hidden h-full">
+          <!-- Loading Shimmer -->
+          <div v-if="!isPreloaded" class="absolute inset-0 bg-slate-800 animate-pulse flex items-center justify-center">
+             <div class="w-full h-full bg-linear-to-r from-slate-800 via-slate-700 to-slate-800 bg-size-[200%_100%] animate-shimmer"></div>
+          </div>
+
           <TransitionGroup name="fade">
             <div 
               v-for="(slide, index) in slides" 
