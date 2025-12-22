@@ -55,7 +55,7 @@
                  </div>
                  <div>
                     <h4 class="font-bold text-white text-lg mb-2">{{ t.emailTitle }}</h4>
-                    <p class="text-slate-400">interguardsp@gmail.com</p>
+                    <a href="mailto:interguardsp@gmail.com" class="text-slate-400 hover:text-white transition-colors cursor-pointer block">interguardsp@gmail.com</a>
                  </div>
               </div>
            </div>
